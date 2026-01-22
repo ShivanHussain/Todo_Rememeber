@@ -1,0 +1,73 @@
+body {
+    background: linear-gradient(135deg,#eef2ff,#f9fafb);
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", Arial, sans-serif;
+    margin: 0;
+}
+
+.app-title {
+    text-align: center;
+    margin: 25px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.pending-title { color: orange; }
+.complete-title { color: green; }
+
+.task-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+table {
+    width: 85%;
+    margin: 20px auto;
+    background: white;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.start { color: orange; font-weight: bold; }
+.pending { color: red; font-weight: bold; }
+.complete { color: green; font-weight: bold; }
+
+.desc-btn {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+}
+
+/* Spinner */
+#spinner-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 55px;
+    height: 55px;
+    border: 6px solid #e5e7eb;
+    border-top: 6px solid #4f46e5;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
