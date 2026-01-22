@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(135deg,#eef2ff,#f9fafb);
-    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", Arial, sans-serif;
+    font-family: "Segoe UI Emoji", Arial, sans-serif;
     margin: 0;
 }
 
@@ -23,6 +23,14 @@ body {
     gap: 10px;
 }
 
+.task-form input {
+    padding: 8px;
+}
+
+.task-form button {
+    padding: 8px 14px;
+}
+
 table {
     width: 85%;
     margin: 20px auto;
@@ -34,11 +42,28 @@ th, td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
+    vertical-align: top;
 }
 
-.start { color: orange; font-weight: bold; }
-.pending { color: red; font-weight: bold; }
-.complete { color: green; font-weight: bold; }
+.desc-cell {
+    text-align: left;
+}
+
+.desc-text {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.desc-form {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.desc-form input {
+    padding: 4px 6px;
+    font-size: 13px;
+}
 
 .desc-btn {
     padding: 4px 10px;
@@ -46,7 +71,12 @@ th, td {
     background: #3b82f6;
     color: white;
     border: none;
+    cursor: pointer;
 }
+
+.start { color: orange; font-weight: bold; }
+.pending { color: red; font-weight: bold; }
+.complete { color: green; font-weight: bold; }
 
 /* Spinner */
 #spinner-overlay {

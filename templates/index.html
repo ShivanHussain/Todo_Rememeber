@@ -1,13 +1,10 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>ToDo Remember</title>
-     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.jpg') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 </head>
 <body>
 
@@ -26,22 +23,31 @@
 <h2 class="section-title pending-title">🟡 Start / Pending</h2>
 
 <table>
-<tr><th>Task</th><th>Description</th><th>Status</th><th>Action</th></tr>
+<tr>
+    <th>Task</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
 {% for t in active_tasks %}
 <tr>
-<td>{{ t[1] }}</td>
-<td>
-    {{ t[2] if t[2] else "—" }}
-    <form method="POST" action="/update-desc/{{ t[0] }}">
-        <input name="description" placeholder="Update">
-        <button class="desc-btn">✏️</button>
-    </form>
-</td>
-<td class="{{ t[3]|lower }}">{{ t[3] }}</td>
-<td>
-    <a href="/status/{{ t[0] }}" class="link-btn">Next</a> |
-    <a href="/delete/{{ t[0] }}" class="link-btn">Delete</a>
-</td>
+    <td>{{ t[1] }}</td>
+
+    <td class="desc-cell">
+        <span class="desc-text">{{ t[2] if t[2] else "—" }}</span>
+        <form class="desc-form" method="POST" action="/update-desc/{{ t[0] }}">
+            <input name="description" placeholder="Update">
+            <button class="desc-btn">✏️</button>
+        </form>
+    </td>
+
+    <td class="{{ t[3]|lower }}">{{ t[3] }}</td>
+
+    <td>
+        <a href="/status/{{ t[0] }}" class="link-btn">Next</a> |
+        <a href="/delete/{{ t[0] }}" class="link-btn">Delete</a>
+    </td>
 </tr>
 {% endfor %}
 </table>
@@ -49,36 +55,32 @@
 <h2 class="section-title complete-title">✅ Completed</h2>
 
 <table>
-<tr><th>Task</th><th>Status</th></tr>
+<tr>
+    <th>Task</th>
+    <th>Status</th>
+</tr>
+
 {% for t in completed_tasks %}
 <tr>
-<td>{{ t[1] }}</td>
-<td class="complete">Complete</td>
+    <td>{{ t[1] }}</td>
+    <td class="complete">Complete</td>
 </tr>
 {% endfor %}
 </table>
 
 <script>
-    const spinner = document.getElementById("spinner-overlay");
+const spinner = document.getElementById("spinner-overlay");
 
-    document.querySelectorAll("form").forEach(f => {
-        f.addEventListener("submit", () => spinner.style.display = "flex");
-    });
+document.querySelectorAll("form").forEach(f => {
+    f.addEventListener("submit", () => spinner.style.display = "flex");
+});
 
-    document.querySelectorAll("a.link-btn").forEach(a => {
-        a.addEventListener("click", () => spinner.style.display = "flex");
-    });
+document.querySelectorAll("a.link-btn").forEach(a => {
+    a.addEventListener("click", () => spinner.style.display = "flex");
+});
 
-    window.addEventListener("pageshow", () => {
-        spinner.style.display = "none";
-    });
-
-    window.addEventListener("error", () => {
-        spinner.style.display = "none";
-        alert("Database temporarily unavailable. Try again.");
-    });
+window.addEventListener("pageshow", () => spinner.style.display = "none");
 </script>
 
 </body>
 </html>
-
