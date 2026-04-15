@@ -41,14 +41,14 @@ todo/
 
 ## **Setup & Local Development**
 
-### 1️⃣ Clone the repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/ShivanHussain/todo-flask-app.git
 cd todo-flask-app
 ```
 
-### 2️⃣ Create a virtual environment (optional but recommended)
+### Create a virtual environment (optional but recommended)
 
 ```bash
 python3 -m venv venv
@@ -56,13 +56,13 @@ source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
 ```
 
-### 3️⃣ Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Set up environment variables
+### Set up environment variables
 
 Create a `.env` file in project root:
 
@@ -73,13 +73,34 @@ MONGO_URI=your_mongodb_connection_string
 > Example for MongoDB Atlas:
 > `mongodb+srv://username:password@cluster.mongodb.net/task?retryWrites=true&w=majority`
 
-### 5️⃣ Run locally
+### Run locally
 
 ```bash
 python3 app.py
 ```
 
 Open browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+
+##  Docker Support
+
+###  Build Docker Image
+
+```bash
+docker build -t todo-remember-dash .
+```
+
+### Run Docker Container
+
+```bash
+docker run -d -p 5000:5000 \
+  -e MONGO_URI="" \
+  --name todo-remember \
+  todo-remember-dash
+```
+
 
 ---
 
