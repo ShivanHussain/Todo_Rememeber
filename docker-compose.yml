@@ -1,0 +1,35 @@
+services:
+  web:
+    build: .
+    container_name: todo_remember
+    ports:
+      - "5000:5000"
+    networks:
+      - todo_network
+    environment:
+      MONGO_URI: mongodb://root:test123@mongo:27017/task?authSource=admin
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: mongodb/mongodb-community-server
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root     
+      MONGO_INITDB_ROOT_PASSWORD: test123
+      MONGO_INITDB_DATABASE: task   
+    networks:
+      - todo_network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping').ok", "--quiet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+networks:
+  todo_network:
+    driver: bridge
