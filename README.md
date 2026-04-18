@@ -104,6 +104,23 @@ docker run -d -p 5000:5000 \
 
 ---
 
+##  Docker Compose 
+
+###  Start Application
+
+```bash
+docker-compose up -d
+```
+
+### Stop Application
+
+```bash
+docker-compose down
+```
+
+
+---
+
 ## **APIs**
 
 * `GET /tasks` → List all tasks
