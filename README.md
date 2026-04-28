@@ -2,7 +2,7 @@
 
 A simple **ToDo application** built with **Flask** and **MongoDB**, with a clean UI, emoji support, and task management features. Fully ready for local development and cloud deployment (Render).
 
-----------------------------------------------------
+------------------------------------------------------------------------
 
 ## **Features**
 
