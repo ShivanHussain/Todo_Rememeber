@@ -2,7 +2,7 @@
 
 A simple **ToDo application** built with **Flask** and **MongoDB**, with a clean UI, emoji support, and task management features. Fully ready for local development and cloud deployment (Render).
 
-------------------------
+-----------------------------------------------
 
 ## **Features**
 
@@ -15,7 +15,7 @@ A simple **ToDo application** built with **Flask** and **MongoDB**, with a clean
 * Backend APIs for integration
 * MongoDB Atlas integration
 
------------------------------
+------------------------------------------------
 
 ## **Folder Structure**
 
@@ -37,7 +37,7 @@ todo/
 └─ .gitignore             # Files to ignore in Git
 ```
 
-------------------------
+---------------------------------------------------
 
 ## **Setup & Local Development**
 
@@ -81,7 +81,7 @@ python3 app.py
 
 Open browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
----------------------------------------------------
+-------------------------------------------------------------
 
 
 ##  Docker Support
@@ -102,7 +102,7 @@ docker run -d -p 5000:5000 \
 ```
 
 
-------------------------------------------
+------------------------------------------------------
 
 ##  Docker Compose 
 
@@ -119,7 +119,7 @@ docker-compose down
 ```
 
 
----------------------------------------------
+-------------------------------------------------------
 
 ## **APIs**
 
@@ -146,7 +146,7 @@ MONGO_URI=your_mongodb_connection_string
 
 7. Deploy → your app will be live at a public URL.
 
----
+--------------------------------------------------------
 
 ## **Technologies Used**
 
@@ -159,7 +159,7 @@ MONGO_URI=your_mongodb_connection_string
 * Gunicorn (production server)
 * Render (cloud hosting)
 
----
+------------------------------------------------------
 
 ## **License**
 
