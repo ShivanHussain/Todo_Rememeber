@@ -15,7 +15,7 @@ A simple **ToDo application** built with **Flask** and **MongoDB**, with a clean
 * Backend APIs for integration
 * MongoDB Atlas integration
 
--------------------------------------------------------
+------------------------------------------------------------------
 
 ## **Folder Structure**
 
