@@ -13,7 +13,7 @@ services:
         condition: service_healthy
 
   mongo:
-    image: mongodb/mongodb-community-server
+    image: mongo:7
     container_name: mongo
     ports:
       - "27017:27017"
