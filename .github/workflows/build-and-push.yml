@@ -26,6 +26,6 @@ jobs:
               with:
                 context: .
                 push: true
-                tags: ${{ vars.DOCKERHUB_USER }}/Todo_remember:latest
+                tags: ${{ vars.DOCKERHUB_USER }}/todo_remember:latest
 
 
