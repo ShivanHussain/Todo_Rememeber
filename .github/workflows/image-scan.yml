@@ -22,7 +22,7 @@ jobs:
             - name: Trivy vulnerability scan
               uses: aquasecurity/trivy-action@v0.36.0
               with:
-                image-ref: ${{ vars.DOCKERHUB_USER }}/todo-remember:latest
+                image-ref: ${{ vars.DOCKERHUB_USER }}/todo_remember:latest
                 format: table
                 severity: 'CRITICAL,HIGH'
                 exit-code: '1'
