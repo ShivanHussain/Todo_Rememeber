@@ -37,5 +37,6 @@ jobs:
     deploy:
         needs: trivy
         uses: ./.github/workflows/deploy-app.yml
+        secrets: inherit
 
     
