@@ -8,8 +8,6 @@ jobs:
 
     code-quality:
         uses: ./.github/workflows/code-check.yml
-
-
     secrets-scan:
         uses: ./.github/workflows/secrets-scan.yml
 
