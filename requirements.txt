@@ -3,3 +3,5 @@ pymongo
 dnspython
 python-dotenv
 gunicorn
+flake8
+bandit
