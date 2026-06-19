@@ -1,0 +1,47 @@
+name: Deploy app to server
+
+on:
+    workflow_call:
+
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: SSH to prod server and create app folder
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SHH_KEY }}
+                script: |
+                 "-------Creating folder--------"
+                 mkdir -p todo-remember-app
+
+            - name: Copy code to prod server
+              uses: appleboy/scp-action@v1
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SHH_KEY }}
+                source: "."
+                target: ~/todo-remember-app
+
+
+            - name: SSH prod server to run the app
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SHH_KEY }}
+                script: |
+                 "Starting Deployment"
+                 cd ~/todo-remember-app && docker compose down && docker compose up -d --build --force-recreate --pull always
+
+
